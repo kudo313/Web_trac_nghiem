@@ -1,0 +1,29 @@
+database: 
+  # url: mongodb://localhost:27017/
+  url: mongodb+srv://kudo313:kudo_321@cluster1.mza5o.mongodb.net/?retryWrites=true&w=majority
+  name: chuyen_de
+
+auth:
+  secret_key: elearning_techpro
+  algorithm: HS256
+  expire_minutes: 540
+#540mins = 9hours = 8 work hours + 1 relax hour
+
+mail:
+  mail_username: elearningtechpro@gmail.com
+  mail_password: Elearning2022
+  mail_from: elearningtechpro@gmail.com
+  mail_port: 587
+  mail_server: smtp.gmail.com
+  mail_tls: True
+  mail_ssl: False
+  use_credentials: True
+  validate_certs: True
+
+project:
+  alias: TEL
+
+role:
+  user: 0
+  admin: 1
+  superadmin: 2
