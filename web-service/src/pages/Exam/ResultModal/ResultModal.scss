@@ -1,0 +1,11 @@
+@import "../../../assets/scss/variables/mixin";
+.confirm__submit--exam {
+  .ant-popover-inner {
+    border-radius: 12px;
+    .ant-popover-inner-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

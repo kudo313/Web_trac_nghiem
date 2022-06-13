@@ -1,0 +1,11 @@
+@import '../../assets/scss/variables//colorVariables';
+
+.title__section {
+    background: $sub-blue;
+    border-radius: 0.75rem;
+    padding: 16px;
+    min-height: 72px; 
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
