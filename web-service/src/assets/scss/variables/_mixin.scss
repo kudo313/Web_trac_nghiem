@@ -1,0 +1,40 @@
+@import "./colorVariables";
+
+@mixin main-section {
+  border: 0 solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.75rem;
+  // padding: 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0rem 0rem 1.6875rem 0rem rgb(0 0 0 / 20%);
+  overflow: hidden;
+}
+
+@mixin sub-section {
+  box-shadow: 0rem 0rem 0.375rem -0.0625rem rgb(0 0 0 / 20%),
+    0rem 0rem 0.25rem -0.0625rem rgb(0 0 0 / 10%);
+  border-radius: 12px;
+}
+
+@mixin blue-button {
+  padding: 8px 24px;
+  background-color: $main-blue;
+  color: $white;
+  &:hover {
+    box-shadow: 1px 1px 10px $main-blue;
+    color: $white;
+    background-color: $main-blue;
+  }
+}
+
+@mixin title-section {
+  padding: 16px;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: $border-grey-solid;
+}
+
+@mixin upload-data-section {
+  position: relative;
+}
