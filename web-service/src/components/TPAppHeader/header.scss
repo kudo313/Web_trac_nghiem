@@ -1,0 +1,23 @@
+@import "../../assets/scss/variables/zIndexVariables";
+@import "../../assets/scss/variables/mixin";
+
+.header__wrapper {
+  // position: fixed !important;
+  // top: 24px;
+  // left: 50%;
+  // transform: translateX(-50%);
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: $header-index;
+  > div {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.header__popover {
+  .ant-popover-inner {
+    border-radius: 12px;
+  }
+}
