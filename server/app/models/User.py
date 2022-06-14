@@ -17,6 +17,11 @@ class User(Account):
     url_avatar: Optional[str] = None
     token: Optional[str] = None
 
+class SignOff(Account):
+    fullname: str
+    room: str
+    position: str
+    
 class NewUser(BaseModel):
     email: str
     password: str
