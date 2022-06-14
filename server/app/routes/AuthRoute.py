@@ -7,13 +7,18 @@ from app.models.User import Account, ForgotPassword, ChangePassword
 from app.exceptions.CredentialException import CredentialException
 from app.utils.AuthUtil import AuthUtil
 from app.utils import EmailUtil
-from app.models.User import Account
+from app.models.User import Account, SignOff
 
 router = APIRouter()
 
 @router.post("/login")
 async def login(account : Account):
     res = await AuthService().authenticate_user(account.email, account.password)
+    return res
+
+@router.post("/sign_off")
+async def signOff(signoff : SignOff):
+    res = await AuthService().sign_off(signoff.email, signoff.password, signoff.fullname, signoff.room, signoff.position)
     return res
 
 @router.post("/forgot-password")

@@ -7,12 +7,8 @@ import React, { lazy } from "react";
 import { default as AllCourses } from "./pages/AllCourses";
 import Setting from 'pages/Setting';
 import DetailExam from "pages/DetailExam";
-import SignIn from "pages/SignIn";
-import { Navigate } from "react-router-dom";
-// const Setting = lazy(() => import('pages/Setting'))
 
-// const Home = React.lazy(() => import('./pages/Home'))
-// const Course = React.lazy(() => import('./pages/Course'))
+import { Navigate } from "react-router-dom";
 
 const routes = [
   {
@@ -22,35 +18,6 @@ const routes = [
   {
     path: "/",
     component: <Navigate to='/list-exams' />,
-  },
-  {
-    path: "current-courses",
-    component: <CurCourses />,
-  },
-  {
-    path: "all-courses",
-    component: <AllCourses />,
-  },
-  {
-    path: "list-exams",
-    component: <ListExams />,
-  },
-
-  {
-    path: "setting",
-    component: <Setting />,
-  },
-  {
-    path: "exam",
-    component: <Exam />,
-  },
-  {
-    path: "forgot-password",
-    component: <ForgotPassword />,
-  },
-  {
-    path: "detail-exam",
-    component: <DetailExam />,
   },
 
 ];
