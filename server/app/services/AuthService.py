@@ -1,5 +1,7 @@
+from os import strerror
 import jwt
 from datetime import datetime
+from app.models.User import User, SignOff
 
 from app.repositories.UserRepo import UserRepo
 from app.services.UserService import UserService
@@ -15,6 +17,23 @@ class AuthService:
     def __init__(self):
         self.__name__= "AuthService"
         self.repo = UserRepo()
+
+    async def sign_off(self, email: str, password: str, fullname: str, room:str, position: str):
+        try:
+            user = self.repo.get_user_by_email(email)
+            if user != None:
+                raise CredentialException(message="Email was used")
+            else:
+                password = AuthUtil.hash_password(password= password)
+                user_sign_off = User(email= email, password= password, role= 0, room= room, fullname= fullname, position= position)
+                user = self.repo.create_user(user= user_sign_off)
+        except Exception as e:
+            print(e)
+            raise CredentialException(message="Can not sign off")
+
+        access_token = AuthUtil.create_access_token(email)
+        res = self.repo.update_token(email, access_token)
+        return {"access_token": access_token, "token_type": "bearer"}
 
     async def authenticate_user(self, email: str, password: str):
         try:
