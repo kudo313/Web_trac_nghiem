@@ -9,10 +9,6 @@ import Setting from 'pages/Setting';
 import DetailExam from "pages/DetailExam";
 import SignIn from "pages/SignIn";
 import { Navigate } from "react-router-dom";
-// const Setting = lazy(() => import('pages/Setting'))
-
-// const Home = React.lazy(() => import('./pages/Home'))
-// const Course = React.lazy(() => import('./pages/Course'))
 
 const routes = [
   {

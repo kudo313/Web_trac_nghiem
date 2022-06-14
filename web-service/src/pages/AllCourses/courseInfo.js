@@ -27,12 +27,7 @@ export default [
         count: 1,
         pro: true,
       },
-      {
-        image: "",
-        name: "Blog Posts",
-        count: 11,
-        pro: true,
-      },
+     
     ],
   },
 ];
