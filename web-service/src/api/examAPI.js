@@ -31,6 +31,20 @@ const examAPI = {
     return axiosClient.delete(url, { params });
   },
 
+  getFullExamRanking: (params) => {
+    const url = "/get-full-exam-ranking";
+    return axiosClient.get(url, { params });
+  },
+
+  getShortcutExamRanking: (params) => {
+    const url = "/get-shortcut-exam-ranking";
+    return axiosClient.get(url, { params });
+  },
+
+  updateExam: (data) => {
+    const url = "/admin/update_exam";
+    return axiosClient.put(url, data);
+  },
 };
 
 export default examAPI;
