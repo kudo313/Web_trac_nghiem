@@ -14,7 +14,7 @@ const AllCourses = () => {
                 boxShadow: ({ boxShadows: { xxl } }) => xxl,
             }}
         >
-            {/* <BlockCourse /> */}
+            <BlockCourse />
         </Card>
     );
 };

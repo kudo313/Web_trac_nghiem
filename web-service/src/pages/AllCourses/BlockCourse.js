@@ -4,9 +4,9 @@ import Grid from "@mui/material/Grid";
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import TPCardItem from "components/TPCardItem";
-import { Link } from "react-router-dom";
-// Data
+
 import data from "./courseInfo";
+
 function BlockCourse() {
     const renderData = (data) => {
         return (
