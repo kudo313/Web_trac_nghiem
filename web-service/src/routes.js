@@ -7,7 +7,11 @@ import React, { lazy } from "react";
 import { default as AllCourses } from "./pages/AllCourses";
 import Setting from 'pages/Setting';
 import DetailExam from "pages/DetailExam";
+<<<<<<< HEAD
 
+=======
+import SignIn from "pages/SignIn";
+>>>>>>> nam_hoai
 import { Navigate } from "react-router-dom";
 
 const routes = [
