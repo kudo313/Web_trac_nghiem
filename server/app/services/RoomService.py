@@ -9,6 +9,7 @@ class RoomService:
         self.__name__= "ExamService"
         self.repo = RoomRepo()
 
+    #api create room
     def create_room(self, new_room: Room):
         try:
             res =  self.repo.create_room(new_room)
