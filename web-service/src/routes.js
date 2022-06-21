@@ -10,8 +10,12 @@ import DetailExam from "pages/DetailExam";
 <<<<<<< HEAD
 
 =======
+<<<<<<< HEAD
+
+=======
 import SignIn from "pages/SignIn";
 >>>>>>> nam_hoai
+>>>>>>> 9ebd14aed1f631436795d03b90c90a2f7b27f8e9
 import { Navigate } from "react-router-dom";
 
 const routes = [
