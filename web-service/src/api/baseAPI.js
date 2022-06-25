@@ -30,11 +30,24 @@ axiosClient.interceptors.request.use(function (config) {
 
 axiosClient.interceptors.response.use(
   function (response) {
+    // if (response && response.data) {
+    //     return response.data;
+    // }
+    // const apiCallIndex = apiCallStack.indexOf(response.config?.url);
+    // if (apiCallIndex !== -1) {
+    //   // showLoading(false)
+    //   apiCallStack.splice(apiCallIndex, 1);
+    // }
 
     return response;
   },
   function (err) {
-
+    // const apiCallIndex = apiCallStack.indexOf(error.config?.url);
+    // if (apiCallIndex !== -1) {
+    //   //showLoading(false)
+    //   apiCallStack.splice(apiCallIndex, 1);
+    // }
+    // return Promise.reject(error);
   }
 );
 
