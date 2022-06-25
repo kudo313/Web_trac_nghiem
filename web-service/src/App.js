@@ -13,7 +13,6 @@ import { Suspense } from "react";
 
 export const UserContext = createContext();
 
-
 export default function App() {
   const { pathname } = useLocation();
 
