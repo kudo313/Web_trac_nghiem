@@ -1,0 +1,8 @@
+
+@import '../../assets/scss/variables/colorVariables';
+@import '../../assets/scss/variables/mixin';
+
+.lastest-result__container {
+    @include sub-section;
+    
+}
