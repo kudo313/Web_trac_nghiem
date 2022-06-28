@@ -1,13 +1,10 @@
 
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-// Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import TPCardItem from "components/TPCardItem";
 import { Link } from "react-router-dom";
-// Data
-import data from "./courseInfo";
 
 
 
