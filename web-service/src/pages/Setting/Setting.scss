@@ -1,0 +1,60 @@
+@import "../../assets/scss/variables/colorVariables";
+@import "../../assets/scss/variables/mixin";
+
+.setting__container {
+  display: flex;
+  justify-content: space-between;
+  margin: 124px 16px 32px 16px;
+  min-height: 500px;
+
+  .left__container {
+    @include main-section;
+    margin-right: 16px;
+    height: fit-content;
+    flex: 1;
+    padding: 24px 0;
+
+    .MuiTabs-root {
+      padding: 0;
+      border-radius: 0;
+      background-color: $white;
+    }
+
+    .MuiButtonBase-root {
+      font-weight: 400;
+      padding: 8px 24px;
+      // color: $black-label !important;
+      border-radius: 0;
+    }
+
+    button {
+      justify-content: left;
+      text-align: left;
+    }
+  }
+
+  .right__container {
+    @include main-section;
+    flex: 4;
+    padding: 0;
+
+    .tab--personal-info {
+      > div {
+        padding: 0;
+      }
+    }
+  }
+  .title__box {
+    padding: 16px;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: $border-grey-solid;
+  }
+
+  .tab--active {
+    color: $black !important;
+    border-left: 2px solid $main-blue !important ;
+  }
+}

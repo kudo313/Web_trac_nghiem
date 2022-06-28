@@ -1,0 +1,10 @@
+@import '../../assets/scss/variables/mixin';
+
+.detail-exam__container{
+    .start__button {
+        @include blue-button;
+    }
+    .description__exam {
+        @include sub-section;
+    }
+}

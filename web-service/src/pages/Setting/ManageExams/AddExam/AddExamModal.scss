@@ -1,0 +1,46 @@
+@import "../../../../assets/scss/variables/colorVariables";
+.add-exam__container {
+  .detail__exam {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $sub-blue;
+    border-radius: 0.75rem;
+    padding: 16px;
+    min-height: 64;
+
+    button {
+      background: $main-blue;
+      color: $white;
+    }
+  }
+  .title__question {
+    padding: 16px;
+  }
+
+  .answer__container {
+    padding: 16px;
+
+    > .MuiFormControl-root {
+      width: 100%;
+      border: 1px solid $gray;
+      border-radius: 8px;
+
+      .MuiFormControlLabel-root {
+        padding: 4px;
+        margin: 0;
+        border-bottom: 1px solid $gray;
+      }
+
+      .MuiFormControlLabel-root:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+.answer-type-many-correct-answer__section {
+  .MuiFormControlLabel-label {
+    width: 100%;
+  }
+}
