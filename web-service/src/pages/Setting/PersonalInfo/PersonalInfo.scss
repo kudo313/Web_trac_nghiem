@@ -1,0 +1,9 @@
+@import '../../../assets/scss/variables/colorVariables';
+@import '../../../assets/scss/variables/mixin';
+.personal-info__container {
+    .confirm__button {
+        @include blue-button;
+    }
+
+    
+}
