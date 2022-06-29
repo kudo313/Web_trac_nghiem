@@ -9,6 +9,7 @@ import Setting from 'pages/Setting';
 import DetailExam from "pages/DetailExam";
 import SignIn from "pages/SignIn";
 import { Navigate } from "react-router-dom";
+import Register from "pages/Register";
 // const Setting = lazy(() => import('pages/Setting'))
 
 // const Home = React.lazy(() => import('./pages/Home'))
@@ -51,6 +52,10 @@ const routes = [
   {
     path: "detail-exam",
     component: <DetailExam />,
+  },
+  {
+    path: "Register",
+    component: <Register />,
   },
   
 
