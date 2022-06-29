@@ -52,6 +52,8 @@ const routes = [
     path: "detail-exam",
     component: <DetailExam />,
   },
+  
+
 
 ];
 
