@@ -21,19 +21,19 @@ export default {
   socials: [
     {
       icon: <FacebookIcon />,
-      link: "https://www.facebook.com/techpro.com.vn/",
+      link: "https://www.facebook.com",
+    },
+    {
+      icon: <TwitterIcon />,
+      link: "https://twitter.com",
     },
     // {
-    //   icon: <TwitterIcon />,
-    //   link: "https://twitter.com/creativetim",
-    // },
-    // {
     //   icon: <GitHubIcon />,
-    //   link: "https://github.com/creativetimofficial",
+    //   link: "https://github.com",
     // },
     {
       icon: <YouTubeIcon />,
-      link: "https://www.youtube.com/user/TechproIAGChannel",
+      link: "https://www.youtube.com",
     },
   ],
   menus: [
@@ -77,13 +77,13 @@ export default {
       All rights reserved. Copyright &copy; {date} by{" "}
       <MKTypography
         component='a'
-        href='https://techpro.vn/'
+        href=''
         target='_blank'
         rel='noreferrer'
         variant='button'
         fontWeight='regular'
       >
-        Techpro Software
+        Captian N
       </MKTypography>
       .
     </MKTypography>

@@ -32,7 +32,7 @@ const yupSchema = yup.object().shape({
   password: yup.string().required("Trường này bắt buộc!"),
 });
 
-function SignIn() {
+function Register() {
   const {
     control,
     handleSubmit,
@@ -47,7 +47,7 @@ function SignIn() {
   const [openNoti, setOpenNoti] = useState(false);
 
   useEffect(() => {
-    checkLogin() ? navigate("/list-exams") : "";
+    checkLogin() ? navigate("/register") : "";
   }, []);
 
   const onChangeEmail = (event) => {
@@ -164,10 +164,10 @@ function SignIn() {
                   color="white"
                   mt={1}
                 >
-                  Đăng nhập
+                  Đăng ký
                 </MKTypography>
               </MKBox>
-              <form onSubmit={handleSubmit(onSubmit)} id="sign-in-form">
+              <form onSubmit={handleSubmit(onSubmit)} id="register-in-form">
                 <Box pt={4} pb={3} px={3}>
                   <Box component="form" role="form">
                     <Box mb={2}>
@@ -256,12 +256,13 @@ function SignIn() {
                       mt={3}
                       mb={1}
                       textAlign="center"
-                      onClick={() => {
-                        navigate("/register", { state: { email: email } });
-                        alert("a");
-                      }}
+                      onClick={() =>
+                        navigate("/setting", {
+                          state: { email: email },
+                        })
+                      }
                     >
-                      <MKButton>Đăng kí</MKButton>
+                      <MKButton>Đ</MKButton>
                     </MKBox>
                   </Box>
                 </Box>
@@ -272,9 +273,9 @@ function SignIn() {
                   color="info"
                   fullWidth
                   type="submit"
-                  form="sign-in-form"
+                  form="register-in-form"
                 >
-                  Đăng nhập
+                  Đăng ký
                 </MKButton>
               </MKBox>
             </Card>
@@ -291,4 +292,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default Register;

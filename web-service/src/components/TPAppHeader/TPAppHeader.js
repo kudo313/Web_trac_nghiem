@@ -31,27 +31,27 @@ function TPAppHeader({ transparent, light, action, relative, center }) {
   }, []);
 
   const menuNavbar = [
-    // {
-    //   name: "Đang học",
-    //   icon: <Icon>dashboard</Icon>,
-    //   route: "/current-courses",
-    // },
-    // {
-    //   name: "Khóa học",
-    //   icon: <Icon>view_day</Icon>,
-    //   route: "/all-courses",
-    // },
+    {
+      name: "Đang học",
+      icon: <Icon>dashboard</Icon>,
+      route: "/current-courses",
+    },
+    {
+      name: "Khóa học",
+      icon: <Icon>view_day</Icon>,
+      route: "/all-courses",
+    },
     {
       name: "Bài thi",
       icon: <Icon>article</Icon>,
       route: "/list-exams",
     },
-    // {
-    //     name: "Liên hệ",
-    //     icon: <Icon>contacts</Icon>,
-    //     route: "/list-exams",
+    {
+        name: "Liên hệ",
+        icon: <Icon>contacts</Icon>,
+        route: "/list-exams",
 
-    // },
+    },
   ];
 
   const openMobileNavbar = () => setMobileNavbar(!mobileNavbar);
