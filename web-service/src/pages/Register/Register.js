@@ -46,9 +46,9 @@ function Register() {
   const [notification, setNotification] = useState({ type: "", message: "" });
   const [openNoti, setOpenNoti] = useState(false);
 
-  useEffect(() => {
-    checkLogin() ? navigate("/register") : "";
-  }, []);
+  // useEffect(() => {
+  //   checkLogin() ? navigate("/list-exams") : "";
+  // }, []);
 
   const onChangeEmail = (event) => {
     const value = event.target.value;
@@ -256,13 +256,12 @@ function Register() {
                       mt={3}
                       mb={1}
                       textAlign="center"
-                      onClick={() =>
-                        navigate("/setting", {
-                          state: { email: email },
-                        })
-                      }
+                      onClick={() => {
+                        navigate("/sign-in", { state: { email: email } });
+                        alert("a");
+                      }}
                     >
-                      <MKButton>Đ</MKButton>
+                      <MKButton>Đăng nhap</MKButton>
                     </MKBox>
                   </Box>
                 </Box>

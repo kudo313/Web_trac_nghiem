@@ -45,6 +45,7 @@ function SignIn() {
   const [isShowPass, setIsShowPass] = useState(false);
   const [notification, setNotification] = useState({ type: "", message: "" });
   const [openNoti, setOpenNoti] = useState(false);
+  const [register, setRegister] = useState(false);
 
   useEffect(() => {
     checkLogin() ? navigate("/list-exams") : "";
@@ -107,7 +108,7 @@ function SignIn() {
     }
   };
 
-  return (
+  return !register ? (
     <>
       <MKBox
         position="absolute"
@@ -257,8 +258,7 @@ function SignIn() {
                       mb={1}
                       textAlign="center"
                       onClick={() => {
-                        navigate("/register", { state: { email: email } });
-                        alert("a");
+                        setRegister(true);
                       }}
                     >
                       <MKButton>Đăng kí</MKButton>
@@ -275,6 +275,219 @@ function SignIn() {
                   form="sign-in-form"
                 >
                   Đăng nhập
+                </MKButton>
+              </MKBox>
+            </Card>
+          </Grid>
+        </Grid>
+      </MKBox>
+      <TPNotification
+        type={notification.type}
+        message={notification.message}
+        open={openNoti}
+        setOpen={setOpenNoti}
+      />
+    </>
+  ) : (
+    <>
+      <MKBox
+        position="absolute"
+        top={0}
+        left={0}
+        zIndex={1}
+        width="100%"
+        minHeight="100vh"
+        sx={{
+          backgroundImage: ({
+            functions: { linearGradient, rgba },
+            palette: { gradients },
+          }) =>
+            `${linearGradient(
+              rgba(gradients.dark.main, 0.6),
+              rgba(gradients.dark.state, 0.6)
+            )}, url(${bgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+      <MKBox
+        px={1}
+        width="100%"
+        height="100vh"
+        mx="auto"
+        position="relative"
+        zIndex={2}
+      >
+        <Grid
+          container
+          spacing={1}
+          justifyContent="center"
+          alignItems="center"
+          height="100%"
+        >
+          <Grid item xs={11} sm={9} md={5} lg={4} xl={3}>
+            <Card>
+              <MKBox
+                variant="gradient"
+                bgColor="info"
+                borderRadius="lg"
+                coloredShadow="info"
+                mx={2}
+                mt={-3}
+                p={2}
+                mb={1}
+                textAlign="center"
+              >
+                <MKTypography
+                  variant="h4"
+                  fontWeight="medium"
+                  color="white"
+                  mt={1}
+                >
+                  Đăng ký
+                </MKTypography>
+              </MKBox>
+              <form onSubmit={handleSubmit(onSubmit)} id="register-in-form">
+                <Box pt={4} pb={3} px={3}>
+                  <Box component="form" role="form">
+                    <Box mb={2}>
+                      <Controller
+                        name="email"
+                        control={control}
+                        render={({ field }) => {
+                          return (
+                            <TextField
+                              sx={{
+                                width: "100%",
+                              }}
+                              size="normal"
+                              variant="outlined"
+                              label="Email"
+                              onChange={onChangeEmail}
+                              helperText={
+                                <Typography variant="caption" color="error">
+                                  {errors.email?.message}
+                                </Typography>
+                              }
+                              {...field}
+                            />
+                          );
+                        }}
+                      />
+                    </Box>
+                    <MKBox
+                      display="flex"
+                      alignItems="center"
+                      sx={{ position: "relative" }}
+                      mb={2}
+                    >
+                      <Controller
+                        name="password"
+                        control={control}
+                        render={({ field }) => {
+                          return (
+                            <>
+                              <TextField
+                                sx={{
+                                  width: "100%",
+                                }}
+                                type={isShowPass ? "text" : "password"}
+                                size="normal"
+                                variant="outlined"
+                                label="Password"
+                                onChange={onChangePassword}
+                                helperText={
+                                  <Typography variant="caption" color="error">
+                                    {errors.password?.message}
+                                  </Typography>
+                                }
+                                {...field}
+                              />
+                              {isShowPass ? (
+                                <VisibilityOffIcon
+                                  sx={{ position: "absolute", right: 8 }}
+                                  onClick={showPass}
+                                />
+                              ) : (
+                                <VisibilityIcon
+                                  sx={{ position: "absolute", right: 8 }}
+                                  onClick={showPass}
+                                />
+                              )}
+                            </>
+                          );
+                        }}
+                      />
+                    </MKBox>
+                    <MKBox
+                      display="flex"
+                      alignItems="center"
+                      sx={{ position: "relative" }}
+                      mb={2}
+                    >
+                      <Controller
+                        name="confirm password"
+                        control={control}
+                        render={({ field }) => {
+                          return (
+                            <>
+                              <TextField
+                                sx={{
+                                  width: "100%",
+                                }}
+                                type={isShowPass ? "text" : "password"}
+                                size="normal"
+                                variant="outlined"
+                                label="Confirm Password"
+                                onChange={onChangePassword}
+                                helperText={
+                                  <Typography variant="caption" color="error">
+                                    {errors.password?.message}
+                                  </Typography>
+                                }
+                                {...field}
+                              />
+                              {isShowPass ? (
+                                <VisibilityOffIcon
+                                  sx={{ position: "absolute", right: 8 }}
+                                  onClick={showPass}
+                                />
+                              ) : (
+                                <VisibilityIcon
+                                  sx={{ position: "absolute", right: 8 }}
+                                  onClick={showPass}
+                                />
+                              )}
+                            </>
+                          );
+                        }}
+                      />
+                    </MKBox>
+
+                  
+                    <MKBox
+                      mt={3}
+                      mb={1}
+                      textAlign="center"
+                      onClick={() => {
+                        setRegister(false);
+                      }}
+                    >
+                      <MKButton>Đăng nhập</MKButton>
+                    </MKBox>
+                  </Box>
+                </Box>
+              </form>
+              <MKBox mt={4} mb={1} sx={{ margin: 2, marginBottom: 2 }}>
+                <MKButton
+                  variant="gradient"
+                  color="info"
+                  fullWidth
+                  type="submit"
+                  form="register-in-form"
+                >
+                  Đăng ký
                 </MKButton>
               </MKBox>
             </Card>

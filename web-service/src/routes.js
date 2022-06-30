@@ -54,7 +54,7 @@ const routes = [
     component: <DetailExam />,
   },
   {
-    path: "Register",
+    path: "register",
     component: <Register />,
   },
   
