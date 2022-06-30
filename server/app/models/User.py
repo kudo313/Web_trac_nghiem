@@ -21,6 +21,7 @@ class SignOff(Account):
     fullname: str
     room: str
     position: str
+    role: int
     
 class NewUser(BaseModel):
     email: str
