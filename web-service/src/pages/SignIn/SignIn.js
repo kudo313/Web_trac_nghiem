@@ -46,6 +46,8 @@ function SignIn() {
   const [notification, setNotification] = useState({ type: "", message: "" });
   const [openNoti, setOpenNoti] = useState(false);
   const [register, setRegister] = useState(false);
+  const [name, setName] = useState("");
+
 
   useEffect(() => {
     checkLogin() ? navigate("/list-exams") : "";
@@ -61,6 +63,10 @@ function SignIn() {
     setPassword(value);
   };
 
+  const onChangeName = (event) => {
+    const value = event.target.value;
+    setName(value);
+  }
   const showPass = () => {
     setIsShowPass(!isShowPass);
   };
@@ -103,6 +109,53 @@ function SignIn() {
           setOpenNoti(true);
         }
       });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const onSubmit1 = async (data) => {
+    try {
+      const payload = {
+        email: data.email,
+        password: data.password,
+        name: data.name,
+      };
+      alert(data.name);
+
+      // await loginAPI.login(payload).then((res) => {
+      //   if (res?.status === 200) {
+      //     localStorage.setItem("accessToken", res?.data.access_token);
+      //     localStorage.setItem("email", data.email);
+      //   } else {
+      //     setNotification({
+      //       message: "Đăng nhập thất bại",
+      //       type: NOTIFICATION.ERROR,
+      //     });
+      //     setOpenNoti(true);
+      //   }
+      // });
+
+      await infoAPI.getInfo().then((res) => {
+        if (res?.status === 200) {
+          setOpenNoti(true);
+          const data = res?.data;
+          localStorage.setItem("userId", data?.user_id);
+          localStorage.setItem("role", data?.role);
+          localStorage.setItem("avatar", data?.url_avatar);
+          localStorage.setItem("room", data?.room);
+          if (location.state?.from) {
+            navigate(location.state.from);
+          } else navigate("/list-exams");
+        } else {
+          setNotification({
+            message: "Đăng nhập thất bại",
+            type: NOTIFICATION.ERROR,
+          });
+          setOpenNoti(true);
+        }
+      });
+
     } catch (error) {
       console.log(error);
     }
@@ -348,7 +401,7 @@ function SignIn() {
                   Đăng ký
                 </MKTypography>
               </MKBox>
-              <form onSubmit={handleSubmit(onSubmit)} id="register-in-form">
+              <form onSubmit={handleSubmit(onSubmit1)} id="register-in-form">
                 <Box pt={4} pb={3} px={3}>
                   <Box component="form" role="form">
                     <Box mb={2}>
@@ -420,50 +473,32 @@ function SignIn() {
                         }}
                       />
                     </MKBox>
-                    <MKBox
-                      display="flex"
-                      alignItems="center"
-                      sx={{ position: "relative" }}
-                      mb={2}
-                    >
+                    
+                    <Box mb={2}>
                       <Controller
-                        name="confirm password"
+                        name="name"
                         control={control}
                         render={({ field }) => {
                           return (
-                            <>
-                              <TextField
-                                sx={{
-                                  width: "100%",
-                                }}
-                                type={isShowPass ? "text" : "password"}
-                                size="normal"
-                                variant="outlined"
-                                label="Confirm Password"
-                                onChange={onChangePassword}
-                                helperText={
-                                  <Typography variant="caption" color="error">
-                                    {errors.password?.message}
-                                  </Typography>
-                                }
-                                {...field}
-                              />
-                              {isShowPass ? (
-                                <VisibilityOffIcon
-                                  sx={{ position: "absolute", right: 8 }}
-                                  onClick={showPass}
-                                />
-                              ) : (
-                                <VisibilityIcon
-                                  sx={{ position: "absolute", right: 8 }}
-                                  onClick={showPass}
-                                />
-                              )}
-                            </>
+                            <TextField
+                              sx={{
+                                width: "100%",
+                              }}
+                              size="normal"
+                              variant="outlined"
+                              label="Name"
+                              onChange={onChangeName}
+                              helperText={
+                                <Typography variant="caption" color="error">
+                                  {errors.name?.message}
+                                </Typography>
+                              }
+                              {...field}
+                            />
                           );
                         }}
                       />
-                    </MKBox>
+                    </Box>
 
                   
                     <MKBox
