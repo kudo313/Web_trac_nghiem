@@ -294,7 +294,7 @@ function SignIn() {
                       />
                     </MKBox>
 
-                    <MKBox
+                    {/* <MKBox
                       mt={3}
                       mb={1}
                       textAlign="center"
@@ -305,7 +305,8 @@ function SignIn() {
                       }
                     >
                       <MKButton>Bạn quên mật khẩu?</MKButton>
-                    </MKBox>
+                    </MKBox> */}
+
                     <MKBox
                       mt={3}
                       mb={1}
