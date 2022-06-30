@@ -1,6 +1,8 @@
 from os import strerror
 import jwt
 from datetime import datetime
+
+from numpy import str_
 from app.models.User import User, SignOff
 
 from app.repositories.UserRepo import UserRepo
@@ -18,14 +20,14 @@ class AuthService:
         self.__name__= "AuthService"
         self.repo = UserRepo()
 
-    async def sign_off(self, email: str, password: str, fullname: str, room:str, position: str, role: int):
+    async def sign_off(self, email: str, password: str):
         try:
             user = self.repo.get_user_by_email(email)
             if user != None:
                 raise CredentialException(message="Email was used")
             else:
                 password = AuthUtil.hash_password(password= password)
-                user_sign_off = User(email= email, password= password, role= role, room= room, fullname= fullname, position= position)
+                user_sign_off = User(email= email, password= password, role= 0, room= "AI", fullname= "", position= "sinh vien")
                 user = self.repo.create_user(user= user_sign_off)
         except Exception as e:
             print(e)

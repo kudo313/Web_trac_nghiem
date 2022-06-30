@@ -1,6 +1,6 @@
 database: 
-  # url: mongodb://localhost:27017/
-  url: mongodb+srv://kudo313:kudo_321@cluster1.mza5o.mongodb.net/?retryWrites=true&w=majority
+  url: mongodb://localhost:27017/
+  # url: mongodb+srv://kudo313:kudo_321@cluster1.mza5o.mongodb.net/?retryWrites=true&w=majority
   name: chuyen_de
 
 auth:

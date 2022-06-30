@@ -18,7 +18,8 @@ async def login(account : Account):
 
 @router.post("/sign_off")
 async def signOff(signoff : SignOff):
-    res = await AuthService().sign_off(signoff.email, signoff.password, signoff.fullname, signoff.room, signoff.position, signoff.role)
+    print(1)
+    res = await AuthService().sign_off(signoff.email, signoff.password)
     return res
 
 @router.post("/forgot-password")

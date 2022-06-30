@@ -121,12 +121,34 @@ function SignIn() {
         password: data.password,
         name: data.name,
       };
-      alert(data.name);
+      // alert(payload.email + payload.password + payload.name);
 
-      // await loginAPI.login(payload).then((res) => {
+      await loginAPI.logoff(payload).then((res) => {
+        if (res?.status === 200) {
+          localStorage.setItem("accessToken", res?.data.access_token);
+          localStorage.setItem("email", data.email);
+          // navigate("/list-exams");
+          setRegister(false);
+        } else {
+          setNotification({
+            message: "Đăng ký thất bại 1",
+            type: NOTIFICATION.ERROR,
+          });
+          setOpenNoti(true);
+        }
+      });
+
+      // await infoAPI.getInfo().then((res) => {
       //   if (res?.status === 200) {
-      //     localStorage.setItem("accessToken", res?.data.access_token);
-      //     localStorage.setItem("email", data.email);
+      //     setOpenNoti(true);
+      //     const data = res?.data;
+      //     localStorage.setItem("userId", data?.user_id);
+      //     localStorage.setItem("role", data?.role);
+      //     localStorage.setItem("avatar", data?.url_avatar);
+      //     localStorage.setItem("room", data?.room);
+      //     if (location.state?.from) {
+      //       navigate(location.state.from);
+      //     } else navigate("/list-exams");
       //   } else {
       //     setNotification({
       //       message: "Đăng nhập thất bại",
@@ -135,26 +157,6 @@ function SignIn() {
       //     setOpenNoti(true);
       //   }
       // });
-
-      await infoAPI.getInfo().then((res) => {
-        if (res?.status === 200) {
-          setOpenNoti(true);
-          const data = res?.data;
-          localStorage.setItem("userId", data?.user_id);
-          localStorage.setItem("role", data?.role);
-          localStorage.setItem("avatar", data?.url_avatar);
-          localStorage.setItem("room", data?.room);
-          if (location.state?.from) {
-            navigate(location.state.from);
-          } else navigate("/list-exams");
-        } else {
-          setNotification({
-            message: "Đăng nhập thất bại",
-            type: NOTIFICATION.ERROR,
-          });
-          setOpenNoti(true);
-        }
-      });
 
     } catch (error) {
       console.log(error);

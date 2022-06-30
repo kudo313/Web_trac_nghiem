@@ -17,11 +17,10 @@ class User(Account):
     url_avatar: Optional[str] = None
     token: Optional[str] = None
 
-class SignOff(Account):
-    fullname: str
-    room: str
-    position: str
-    role: int
+class SignOff(BaseModel):
+    email: str
+    password: Optional[str] = None
+    # fullname: str
     
 class NewUser(BaseModel):
     email: str
