@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+    react:
+        restart: always
+        build: ./web-service       
+        ports:
+            - 3000:3000
+        volumes:
+            - './web-service:/app' 
+            - ./data:/data/db/chuyen_de  
+            
+
+    api:
+        restart: always
+        build: ./server
+        ports: 
+            - 8001:8001
+        environment:
+            - DB_URL=mongodb://db/chuyen_de
+        volumes:
+            - ./server:/app
+    db:
+        restart: always
+        image: mongo
+        ports:
+            - 27017:27017
+        volumes:
+            - ./data:/data/db
+volumes:
+    data:

@@ -2,7 +2,6 @@ from os import strerror
 import jwt
 from datetime import datetime
 
-from numpy import str_
 from app.models.User import User, SignOff
 
 from app.repositories.UserRepo import UserRepo
